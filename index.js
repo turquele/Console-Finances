@@ -86,3 +86,9 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+//Total number of months in the dataset
+
+var numberOfMonths = finances.length
+console.log(numberOfMonths)
+
