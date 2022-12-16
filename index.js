@@ -89,12 +89,12 @@ var finances = [
 
 // 1. Total number of months in the dataset
 
-var numberOfMonths = finances.length
+let numberOfMonths = finances.length
 console.log(numberOfMonths)
 
 // 2. Net total profit/loss
 
-var netProfit = 0;
+let netProfit = 0;
 finances.forEach(element => {
     netProfit += element[1] 
 });
@@ -103,20 +103,28 @@ console.log(netProfit);
 // 3. Average changes in profit/loss
 
     // 3.a Creating an array with monthly profit/loss changes
-    let monthlyProfit = []
+    let monthlyProfits = [] // An array with monthly changes in profit
     for (let i = 0; i < finances.length - 1; i++) {
-        monthlyProfit.push(finances[i+1][1]-finances[i][1]);
+        monthlyProfits.push(finances[i+1][1]-finances[i][1]);
     }
 
     // 3.b Calculate the average in this array
-    let averageProfit = 0;
-    console.log(monthlyProfit)
-    monthlyProfit.forEach(element => {
-        averageProfit=averageProfit+element
+    let sumOfProfits = 0; // Sum of changes in profits/losses
+    console.log(monthlyProfits)
+    monthlyProfits.forEach(element => {
+        sumOfProfits=sumOfProfits+element
     });
+    let averageProfits = sumOfProfits /(numberOfMonths-1)
 
     // 3.c Print the result
-    console.log(averageProfit/(numberOfMonths-1));
+    console.log(averageProfits);
 
-    
+// 4 Greatest increase in profits (date and ammount)
+console.log(monthlyProfits);
+let greatestIncProfits = monthlyProfits.reduce((a,b)=>Math.max(a,b), -Infinity);
+
+console.log(greatestIncProfits)
+
+// 5 Greatest decrease in losses (date and ammount)
+
 
