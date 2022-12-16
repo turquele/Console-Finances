@@ -92,3 +92,11 @@ var finances = [
 var numberOfMonths = finances.length
 console.log(numberOfMonths)
 
+//Net total profit/loss
+
+var netProfit = 0;
+finances.forEach(element => {
+    netProfit = netProfit + element[1] 
+});
+console.log(netProfit);
+
