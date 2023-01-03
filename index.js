@@ -113,7 +113,8 @@ console.log("Total profit/loss: " + netProfit);
     monthlyProfits.forEach(element => {
         sumOfProfits=sumOfProfits+element
     });
-    let averageProfits = sumOfProfits /(numberOfMonths-1)
+    let averageProfits = sumOfProfits /(numberOfMonths-1);
+    averageProfits = averageProfits.toFixed(2);
 
     // 3.c Print the result
     console.log("Average change in profits:"+averageProfits);
