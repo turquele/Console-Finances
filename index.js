@@ -90,7 +90,7 @@ var finances = [
 // 1. Total number of months in the dataset
 
 let numberOfMonths = finances.length
-console.log(numberOfMonths)
+console.log("Total Months: " + numberOfMonths)
 
 // 2. Net total profit/loss
 
@@ -98,7 +98,7 @@ let netProfit = 0;
 finances.forEach(element => {
     netProfit += element[1] 
 });
-console.log(netProfit);
+console.log("Total profit/loss: " + netProfit);
 
 // 3. Average changes in profit/loss
 
@@ -110,21 +110,32 @@ console.log(netProfit);
 
     // 3.b Calculate the average in this array
     let sumOfProfits = 0; // Sum of changes in profits/losses
-    console.log(monthlyProfits)
     monthlyProfits.forEach(element => {
         sumOfProfits=sumOfProfits+element
     });
     let averageProfits = sumOfProfits /(numberOfMonths-1)
 
     // 3.c Print the result
-    console.log(averageProfits);
+    console.log("Average change in profits:"+averageProfits);
 
 // 4 Greatest increase in profits (date and ammount)
-console.log(monthlyProfits);
-let greatestIncProfits = monthlyProfits.reduce((a,b)=>Math.max(a,b), -Infinity);
+let greatestIncProfits = monthlyProfits.reduce((a,b) => Math.max(a,b), -Infinity);
+let indexOfGreatestIncProfits = monthlyProfits.indexOf(greatestIncProfits)
+console.log("Greatest increment in profits: " + finances[indexOfGreatestIncProfits+1][0] + greatestIncProfits)
 
-console.log(greatestIncProfits)
+// 5 Greatest decrease in profits (date and ammount)
 
-// 5 Greatest decrease in losses (date and ammount)
+let greatestDecProfits = monthlyProfits.reduce((a,b) => Math.min(a,b), 0);
+let indexOfGreatestDecProfits = monthlyProfits.indexOf(greatestDecProfits)
+console.log("Greatest decrease:"+ finances[indexOfGreatestDecProfits+1][0] + greatestDecProfits)
+
+// 6 Printing in screen
+document.write("Financial Analysis<br>")
+document.write("----------------------------<br>")
+document.write("Total Months: " + numberOfMonths + "<br>")
+document.write("Total profit/loss: " + netProfit + "<br>")
+document.write("Average change in profits: "+averageProfits + "<br>")
+document.write("Greatest increment in profits: " + finances[indexOfGreatestIncProfits+1][0] + " ($" + greatestIncProfits + ")<br>")
+document.write("Greatest decrease: "+ finances[indexOfGreatestDecProfits+1][0] + " ($" + greatestDecProfits + ")<br>")
 
 
